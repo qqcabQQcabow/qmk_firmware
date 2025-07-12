@@ -115,7 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|    T  |    |       |------+------+------+------+------+------|
  * |   T  | Undo |  Cut | Copy | Paste|      |-------|    |-------|      |   T  |      |   T  |      |  T   |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            |  T   |  T   |  T   |   T  | /  T    /       \   T  \  |  T   |  T   |  T   |  T   |
+ *            |  T   |  T   |  T   |   T  | /  T    /       \   T  \  |  T   |  T   |  T   |LSHIFT|
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'            '------''---------------------------'
  */
@@ -125,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______,  KC_INS,  KC_PSCR,   KC_ENT,  XXXXXXX, XXXXXXX,                        _______, KC_PGDN,   KC_PGUP, _______,C(KC_BSPC), KC_BSPC,
   _______, KC_LALT,  KC_LCTL,  KC_LSFT,  XXXXXXX, KC_CAPS,                       KC_LEFT,  KC_DOWN, KC_UP, KC_RGHT,  KC_DEL, KC_BSPC,
   _______, C(KC_Z), C(KC_X), C(KC_C), C(KC_V), XXXXXXX,  _______,       _______,  XXXXXXX, _______, XXXXXXX, _______,   XXXXXXX, _______,
-                         _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
+                         _______, _______, _______, _______, _______,       _______, _______, _______, _______, KC_LSFT
 ),
 
 
