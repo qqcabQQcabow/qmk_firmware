@@ -124,16 +124,16 @@ static void render_caps(void){
 
 void print_status_narrow(void) {
 
-    bool caps = host_keyboard_led_state().caps_lock;
-    if(caps){
-        render_caps();
-        return;
-    }
 
     switch (get_highest_layer(layer_state)) {
         case 0:
         case 1:
-            render_base();
+            if(host_keyboard_led_state().caps_lock){
+                render_caps();
+            }
+            else{
+                render_base();
+            }
             break;
         case 2:
             render_lower();
