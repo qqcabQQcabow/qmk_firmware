@@ -55,6 +55,8 @@ quantum/version.h
 .idea
 .idea/
 .project
+**/.ccls-cache/
+.ccls-cache/
 .settings/
 
 # ?
