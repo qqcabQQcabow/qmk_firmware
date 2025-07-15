@@ -9,6 +9,7 @@ enum sofle_layers {
     _LOWER,
     _RAISE,
     _ADJUST,
+    _GAME_MOD,
 };
 
 enum custom_keycodes {
@@ -20,6 +21,7 @@ enum custom_keycodes {
 
 #define KC_QWERTY PDF(_QWERTY)
 #define KC_COLEMAK PDF(_COLEMAK)
+#define KC_GAME TG(_GAME_MOD)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
@@ -30,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | tab  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  | Bspc |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |Lalt  |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
- * |------+------+------+------+------+------| MUTE  |    |_______|------+------+------+------+------+------|
+ * |------+------+------+------+------+------| MUTE  |    |GAME   |------+------+------+------+------+------|
  * | Del  |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  | RALT |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            | LCTRL| WIN  |LOWER | Bspc | / shift /       \ Enter\  |SPACE |RAISE |  _   | LCTRL|
@@ -39,15 +41,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_QWERTY] = LAYOUT(
   //,------------------------------------------------.                    ,---------------------------------------------------.
-  KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,   KC_8,    KC_9,    KC_0,    KC_GRV,
+  KC_ESC,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,    KC_7,   KC_8,    KC_9,    KC_0,    KC_GRV,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  KC_TAB,  KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,   KC_I,    KC_O,    KC_P,    KC_BSPC,
+  KC_TAB,  KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                        KC_Y,    KC_U,   KC_I,    KC_O,    KC_P,    KC_BSPC,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  KC_LALT,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                      KC_H,    KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+  KC_LALT,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                       KC_H,    KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-  KC_DEL,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,  KC_MUTE,  XXXXXXX,KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_RALT,
+  KC_DEL,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,  KC_MUTE,     KC_GAME, KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_RALT,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-                 KC_LCTL, KC_LGUI, TL_LOWR, KC_BSPC, KC_LSFT,     KC_ENT, KC_SPC,  TL_UPPR, S(KC_MINS), KC_LCTL
+                 KC_LCTL, KC_LGUI, TL_LOWR, KC_BSPC, KC_LSFT,     KC_ENT,  KC_SPC,  TL_UPPR, S(KC_MINS), KC_LCTL
   //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
 ),
 
@@ -69,15 +71,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_COLEMAK] = LAYOUT(
   //,------------------------------------------------.                    ,---------------------------------------------------.
-  KC_TRNS,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,   KC_8,    KC_9,    KC_0,    KC_TRNS,
+  _______,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,   KC_8,    KC_9,    KC_0,    _______,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  KC_TRNS,  KC_Q,   KC_W,    KC_F,    KC_P,    KC_G,                      KC_J,    KC_L,   KC_U,    KC_Y,    KC_SCLN, KC_TRNS,
+  _______,  KC_Q,   KC_W,    KC_F,    KC_P,    KC_G,                      KC_J,    KC_L,   KC_U,    KC_Y,    KC_SCLN, _______,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  KC_TRNS,  KC_A,   KC_R,    KC_S,    KC_T,    KC_D,                      KC_H,    KC_N,   KC_E,    KC_I,    KC_O,    KC_TRNS,
+  _______,  KC_A,   KC_R,    KC_S,    KC_T,    KC_D,                      KC_H,    KC_N,   KC_E,    KC_I,    KC_O,    _______,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-  KC_TRNS,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,  KC_TRNS,    KC_TRNS,KC_K,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_TRNS,
+  _______,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,  _______,    _______,KC_K,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, _______,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS
+                 _______, _______, _______, _______,  _______,    _______, _______,  _______, _______, _______
   //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
 ),
 
@@ -149,7 +151,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX , XXXXXXX,CG_TOGG, XXXXXXX,    XXXXXXX,  XXXXXXX,                     XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX, XXXXXXX,
   XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX,  XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
                    _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
-  )
+),
+
+[_GAME_MOD] = LAYOUT(
+//,------------------------------------------------.                   ,---------------------------------------------------.
+  _______, _______, _______, _______, _______, _______,                 _______, _______, _______, _______, _______, _______,
+//|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
+  _______,  KC_T,   KC_Q,   KC_W,    KC_E,    KC_R,                     _______, _______, _______, _______, _______, _______,
+//|----------+-------+--------+--------+--------+--|                   |--------+-------+--------+--------+--------+---------|
+  KC_LSFT,  KC_G,   KC_A,   KC_S,    KC_D,    KC_F,                     _______, _______, _______, _______, _______, _______,
+//|----------+-------+--------+--------+--------+--|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
+  KC_LALT,  KC_B,   KC_Z,   KC_X,    KC_C,    KC_V, _______,    _______,_______, _______, _______, _______, _______, _______,
+//|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
+                 _______, _______, _______, KC_SPC, KC_LCTL,    _______,_______, _______, _______, _______
+//            |--------+--------+--------+---------+-------|   |--------+-------+--------+--------+--------|
+)
+
+
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
