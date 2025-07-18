@@ -111,9 +111,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,----------------------------------------.                    ,-----------------------------------------.
  * |   T  |  T   |  T   |  T   |  T   |  T   |                    |   T  |   T  |  T   |   T  |  T   |  T   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   T  | Ins  | Pscr | enter|      |      |                    |   T  |PGDOWN| PGUP |   T  | DLine| Bspc |
+ * |   T  | Ins  | Pscr | enter|      |      |                    |   T  |PGDOWN| PGUP |   ;  | DLine| Bspc |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   T  | LAt  | LCtl |LShift|      |      |-------.    ,-------| Left | down | Up   | Left |  Del | Bspc |
+ * |   T  | LAt  | /    |LShift|      |      |-------.    ,-------| Left | down | Up   | Left |  Del | Bspc |
  * |------+------+------+------+------+------|    T  |    |       |------+------+------+------+------+------|
  * |   T  | Undo |  Cut | Copy | Paste|      |-------|    |-------|  :   |   ;  |      |   T  |      |  T   |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -124,8 +124,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_RAISE] = LAYOUT(
   _______, _______ , _______ , _______ , _______ , _______,                           _______,  _______  , _______,  _______ ,  _______ ,_______,
-  _______,  KC_INS,  KC_PSCR,   KC_ENT,  XXXXXXX, XXXXXXX,                            _______, KC_PGDN,   KC_PGUP, _______,C(KC_BSPC), KC_BSPC,
-  _______, KC_LALT,  KC_LCTL,  KC_LSFT,  XXXXXXX, XXXXXXX,                            KC_LEFT,  KC_DOWN, KC_UP, KC_RGHT,  KC_DEL, KC_BSPC,
+  _______,  KC_INS,  KC_PSCR,   KC_ENT,  XXXXXXX, XXXXXXX,                            _______, KC_PGDN,   KC_PGUP, KC_SCLN, (KC_BSPC), KC_BSPC,
+  _______, KC_LALT,  KC_SLSH,  KC_LSFT,  XXXXXXX, XXXXXXX,                            KC_LEFT,  KC_DOWN, KC_UP, KC_RGHT,  KC_DEL, KC_BSPC,
   _______, C(KC_Z), C(KC_X), C(KC_C), C(KC_V), XXXXXXX,  _______,           _______,  KC_COLN, KC_SCLN, XXXXXXX, _______,   XXXXXXX, _______,
                          _______, _______, _______, _______, _______,       _______, _______, _______, _______, KC_LSFT
 ),
